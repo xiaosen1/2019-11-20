@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<button id="btn">按钮</button>
+<script>
+    /*
+    解除事件函数 -> 给元素事件赋值  null即可
+
+    var a = function（）{}
+    a = function（）{}
+    a()
+
+    带on的事件方式是DOM0中的标准，不够强大
+
+    DOM2 事件绑定 -> addEventListener('不带on的事件名'，事件函数，布尔值|对象)
+
+    布尔值： true 捕获   false  冒泡
+    默认为false
+    */
+       // 最后弹出的是alert(2)  因为从下往上找   第二个覆盖第一个
+    //    btn.onclick = function(){
+    //        alert(1)
+    //        // btn.onclick = null  如果想要把这个事件清楚直接给他赋值为null即可
+    //    }
+    //    btn.onclick = function(){
+    //        alert(2)
+    //    }
+
+        // true：捕获  false：冒泡
+        // 捕获从上往下捕获   再自下而上冒泡
+        window.addEventListener('click',function(){
+            alert('window')
+        },false)
+        btn.addEventListener('click',function(){
+            alert(2)
+        },false)
+        btn.addEventListener('click',function(){
+            alert(2)
+        },false)
+</script>
+</body>
+
+</html>

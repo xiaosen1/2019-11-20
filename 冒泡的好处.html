@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // getElements系列，children 都是动态获取
+        let lis = document.getElementsByTagName('li')  // 动态获取
+        // let list = document.querySelectorAll('li')  // 静态获取
+        let num = 1
+        /* 
+        <li onclick>
+        
+        ul.innerHTML = <li>+<li>
+        */
+        btn.onclick = function(){
+            // console.log(lis.length)
+            // 覆盖的问题
+            ul.innerHTML+='<li>'+(++num)+'</li>'
+            lis = document.querySelectorAll('li')
+            for (let i = 0; i < lis.length; i++) {
+                lis[i].onclick = function(){
+                    alert(this.innerHTML)
+                }
+                
+            }
+            
+        }
+        ul.onclick = function(ev){
+            // ev.target点谁是谁
+            console.log(ev.target)
+            console.log(ev.target.tagName)
+            if (ev.target.tagName === 'LI') {
+                ev.target.style.background = 'greenyellow'
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background: tomato;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">显示</button>
+    <div id="box"></div>
+    <script>
+        btn.onclick = function(ev){
+            box.style.display = 'block'
+             alert(1)
+            //ev.cancelBubble = true  // 阻止冒泡，它不是标准，但是所有浏览器都兼容
+        }
+        window.onclick = function(){
+            alert(2)
+            box.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
